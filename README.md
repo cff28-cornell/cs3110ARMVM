@@ -1,4 +1,6 @@
-# The CS 3110 VM
+# The CS 3110 ARM-Processor VM
+
+Instructions for creating VM on M* processors Macs.
 
 You can download the CS 3110 VM from [Cornell Box][3110vm]. Installation and
 usage instructions can be found in the [3110 textbook][op-vm]. Here is how we
@@ -6,11 +8,13 @@ created the VM:
 
 [3110vm]: https://cornell.box.com/v/cs3110vm-2024sp
 [op-vm]: https://cs3110.github.io/textbook/chapters/appendix/vm.html
+1/18/2024
+[VMWare Fusion Player]: https://customerconnect.vmware.com/en/evalcenter?p=fusion-player-personal-13
+[Ubuntu 22.04.3 jammy-desktop-arm64.iso]: https://cdimage.ubuntu.com/jammy/daily-live/current/
 
-1. Download and install [VirtualBox][], and download
-   [Ubuntu 22.04 Desktop][ubuntu].
+1. Download and install [VMWare Fusion Player], and download [Ubuntu 22.04.3 jammy-desktop-arm64.iso]
 
-   - Create a new VM in VirtualBox. Name it `cs3110vm-2024sp-ubuntu`, replacing
+   - Create a new VM in VMWare Fusion Player. Name it `cs3110vm-2024sp-ubuntu`, replacing
      `2024sp` with the current semester. Skip the unattended install. Use 2048
      MB RAM, 1 CPU, and a 64 GB dynamically-sized hard drive. We deliberately
      keep the hardware requirements minimal for students who have lower-end
@@ -34,14 +38,9 @@ created the VM:
    ```
    sudo apt update
    sudo apt upgrade
-   sudo apt install build-essential linux-headers-$(uname -r) vim emacs
+   sudo apt install build-essential linux-headers-$(uname -r) vim emacs open-vm-tools
    ```
 
-3. In VirtualBox, go to Devices -> "Insert Guest Editions CD Image". Then in Terminal run
-   ```
-   sudo /media/camel/VBox_GAs_7.0.12/VBoxLinuxAdditions.run
-   ```
-   Reboot the virtual machine. Eject the CD image. Enable Devices->Shared Clipboard->Bidirectional.
 
 3. To install and initialize OPAM, run
    ```
